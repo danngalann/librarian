@@ -6,4 +6,4 @@ run-dev:
 	docker-compose -f docker-compose-dev.yaml up
 
 run-prod:
-	docker-compose -f docker-compose-prod.yaml up
+	docker-compose -f docker-compose-prod.yaml up -d
