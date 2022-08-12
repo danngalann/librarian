@@ -9,3 +9,12 @@ services:
       - "5001:80"
     volumes:
       - ./server/:/app
+  client:
+    image: client
+    container_name: lient
+    build: ./client/
+    ports:
+      - "5002:3000"
+    volumes:
+      - ./client/:/app
+      - /app/node_modules # Ignore node_modules
