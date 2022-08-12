@@ -2,19 +2,23 @@ version: '3.1'
 
 services:
   server:
-    image: server
+    image: server:latest
     container_name: server
     build: ./server/
     ports:
       - "5001:80"
+    env_file:
+      - .env.local
     volumes:
       - ./server/:/app
   client:
-    image: client
+    image: client:latest
     container_name: client
     build: ./client/
     ports:
       - "5002:3000"
+    env_file:
+      - .env.local
     volumes:
       - ./client/:/app
       - /app/node_modules # Ignore node_modules

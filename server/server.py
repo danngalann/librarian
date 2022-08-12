@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import os
 
 from ai.chat import answer
 
@@ -10,8 +11,7 @@ class PredictionRequest(BaseModel):
 
 app = FastAPI()
 origins = [
-    "http://localhost:5002",
-    "http://localhost:3000",
+    os.getenv("FRONTEND_URL"),
 ]
 
 app.add_middleware(

@@ -28,7 +28,7 @@ function App() {
     addMessage({ message, mine: true });
     messageInputRef.current.value = "";
 
-    fetch("http://localhost:5001/predict", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/predict`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
