@@ -1,0 +1,38 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "responses": [
+          "Hey :-)",
+          "Hello, thanks for visiting",
+          "Hi there, what can I do for you?",
+          "Hi there, how can I help?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "responses": [
+          "See you later, thanks for visiting",
+          "Have a nice day",
+          "Bye! Come back again soon."
+        ]
+      },
+      {
+        "tag": "thanks",
+        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      },
+      {
+        "tag": "capabilities",
+        "responses": ["I can recommend you books based on categories you ask me about"]
+      },
+      {
+        "tag": "fantasy",
+        "responses": ["You should try the Harry Potter series", "Why don't you give 'The Inheritance Cycle' a go?", "The 'His Dark Materials' series is a great read", "I really loved 'Shadow and Bone'"]
+      },
+      {
+        "tag": "scifi",
+        "responses": ["The 'Fondation' series is a great read", "'Dune' is a dense series, but a classic.", "'To Sleep in a Sea of Stars' is really interesting"]
+      }
+    ]
+  }
+  
