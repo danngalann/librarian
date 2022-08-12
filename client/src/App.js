@@ -1,5 +1,4 @@
 import {
-  ActionIcon,
   Avatar,
   Group,
   Text,
@@ -7,8 +6,6 @@ import {
   Stack,
   ScrollArea,
   MantineProvider,
-  Center,
-  Box,
   Button,
 } from "@mantine/core";
 import { IconSend } from "@tabler/icons";
@@ -17,6 +14,7 @@ import Message from "./components/Message";
 
 function App() {
   const [messages, setMessages] = useState([]);
+  const [isThinking, setIsThinking] = useState(false);
   const messageInputRef = useRef();
 
   const addMessage = (message) => {
@@ -24,6 +22,8 @@ function App() {
   };
 
   const sendMessage = () => {
+    setIsThinking(true);
+
     const message = messageInputRef.current.value;
     addMessage({ message, mine: true });
     messageInputRef.current.value = "";
@@ -38,6 +38,7 @@ function App() {
       .then((res) => res.json())
       .then((pred) => {
         addMessage({ message: pred, mine: false });
+        setIsThinking(false);
       });
   };
 
@@ -55,7 +56,7 @@ function App() {
             <div>
               <Text size="xl">The Librarian</Text>
               <Text size="sm" color="dimmed">
-                Online
+                {isThinking ? 'Writing...' : 'Online'}
               </Text>
             </div>
           </Group>
@@ -81,8 +82,9 @@ function App() {
                   placeholder="Enter a message..."
                   style={{ flex: 1 }}
                   ref={messageInputRef}
+                  disabled={isThinking}
                 />
-                <Button type="submit">
+                <Button type="submit" disabled={isThinking}>
                   <IconSend />
                 </Button>
               </Group>
