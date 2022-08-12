@@ -4,6 +4,7 @@ specifiers:
   '@emotion/react': ^11.10.0
   '@mantine/core': ^5.1.4
   '@mantine/hooks': ^5.1.4
+  '@tabler/icons': ^1.81.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.3.0
   '@testing-library/user-event': ^13.5.0
@@ -16,6 +17,7 @@ dependencies:
   '@emotion/react': 11.10.0_react@18.2.0
   '@mantine/core': 5.1.4_e7igouli6x37ef77h5jcqe4kqa
   '@mantine/hooks': 5.1.4_react@18.2.0
+  '@tabler/icons': 1.81.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
@@ -2433,6 +2435,21 @@ packages:
       loader-utils: 2.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@tabler/icons/1.81.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Wgu/DYcbmUPvvsFWfhZ1Yn/hrlz4rrIuGk0+ZuEsr8fZmiZpELBDLPu+u4wftkxoiFEZpf4g63vAoonIiYbEzA==}
+    peerDependencies:
+      react: ^16.x || 17.x || 18.x
+      react-dom: ^16.x || 17.x || 18.x
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@testing-library/dom/8.17.1:
