@@ -43,51 +43,53 @@ function App() {
 
   return (
     <MantineProvider>
-      <header>
-        <Group align="flex-start">
-          <Avatar
-            radius="50%"
-            size="lg"
-            src="librarian.webp"
-            alt="the librarian picture"
-          />
-          <div>
-            <Text size="xl">The Librarian</Text>
-            <Text size="sm" color="dimmed">
-              Online
-            </Text>
-          </div>
-        </Group>
-      </header>
-      <main>
-        <Stack justify="space-between">
-          <ScrollArea>
-            {messages.map((data, index) => (
-              <Message key={index} mine={data.mine}>
-                {data.message}
-              </Message>
-            ))}
-          </ScrollArea>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              sendMessage();
-            }}
-          >
-            <Group>
-              <TextInput
-                aria-label="Message input"
-                placeholder="Enter a message..."
-                style={{ flex: 1 }}
-                ref={messageInputRef}
-              />
-              <Button type="submit">
-                <IconSend />
-              </Button>
-            </Group>
-          </form>
-        </Stack>
-      </main>
+      <Stack style={{ height: "100vh" }}>
+        <header style={{padding: 10}}>
+          <Group align="flex-start">
+            <Avatar
+              radius="50%"
+              size="lg"
+              src="librarian.webp"
+              alt="the librarian picture"
+            />
+            <div>
+              <Text size="xl">The Librarian</Text>
+              <Text size="sm" color="dimmed">
+                Online
+              </Text>
+            </div>
+          </Group>
+        </header>
+        <main style={{flex: 1, padding: 10}}>
+          <Stack justify="space-between" style={{height: "100%"}}>
+            <ScrollArea style={{height: "80vh"}}>
+              {messages.map((data, index) => (
+                <Message key={index} mine={data.mine}>
+                  {data.message}
+                </Message>
+              ))}
+            </ScrollArea>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage();
+              }}
+            >
+              <Group>
+                <TextInput
+                  aria-label="Message input"
+                  placeholder="Enter a message..."
+                  style={{ flex: 1 }}
+                  ref={messageInputRef}
+                />
+                <Button type="submit">
+                  <IconSend />
+                </Button>
+              </Group>
+            </form>
+          </Stack>
+        </main>
+      </Stack>
     </MantineProvider>
   );
 }
