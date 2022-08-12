@@ -5,10 +5,12 @@ import {
   Text,
   TextInput,
   Stack,
-  ScrollArea
+  ScrollArea,
+  MantineProvider,
 } from "@mantine/core";
 import { IconSend } from "@tabler/icons";
 import { useRef, useState } from "react";
+import Message from "./components/Message";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -22,10 +24,10 @@ function App() {
     const message = messageInputRef.current.value;
     addMessage(message);
     messageInputRef.current.value = "";
-  }
+  };
 
   return (
-    <>
+    <MantineProvider>
       <header>
         <Group align="flex-start">
           <Avatar
@@ -45,17 +47,17 @@ function App() {
       <main>
         <Stack justify="space-between">
           <ScrollArea>
-            {
-              messages && messages.map((message, index) => (
-                <div key={index}>{message}</div>
-              ))
-            }
+            {messages.map((data, index) => (
+              <Message key={index} mine={data.mine}>
+                {data.message}
+              </Message>
+            ))}
           </ScrollArea>
           <Group>
             <TextInput
               aria-label="Message input"
               placeholder="Enter a message..."
-              style={{flex: 1}}
+              style={{ flex: 1 }}
               ref={messageInputRef}
             />
             <ActionIcon onClick={() => sendMessage()}>
@@ -64,7 +66,7 @@ function App() {
           </Group>
         </Stack>
       </main>
-    </>
+    </MantineProvider>
   );
 }
 
