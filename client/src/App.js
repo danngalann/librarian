@@ -17,13 +17,25 @@ function App() {
   const messageInputRef = useRef();
 
   const addMessage = (message) => {
-    setMessages([...messages, message]);
+    setMessages((current) => ([...current, message]));
   };
 
   const sendMessage = () => {
     const message = messageInputRef.current.value;
-    addMessage(message);
+    addMessage({ message, mine: true });
     messageInputRef.current.value = "";
+
+    fetch("http://localhost:5001/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ sentence: message }),
+    })
+      .then((res) => res.json())
+      .then((pred) => {
+        addMessage({ message: pred, mine: false });
+      });
   };
 
   return (
