@@ -7,13 +7,13 @@ import torch
 from .model import NeuralNet
 from .utils import bag_of_words, tokenize
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cpu')
 
 with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'intents.json'), 'r') as json_data:
     intents = json.load(json_data)
 
 FILE = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'model.pth')
-data = torch.load(FILE)
+data = torch.load(FILE, map_location='cpu')
 
 input_size = data["input_size"]
 hidden_size = data["hidden_size"]
