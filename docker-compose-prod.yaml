@@ -11,7 +11,7 @@ services:
       - "5001:80"
   client:
     image: client
-    container_name: librarian_server
+    container_name: librarian_client
     env_file:
       - .env.prod
     build: ./client/
