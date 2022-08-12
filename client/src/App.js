@@ -7,6 +7,9 @@ import {
   Stack,
   ScrollArea,
   MantineProvider,
+  Center,
+  Box,
+  Button,
 } from "@mantine/core";
 import { IconSend } from "@tabler/icons";
 import { useRef, useState } from "react";
@@ -17,7 +20,7 @@ function App() {
   const messageInputRef = useRef();
 
   const addMessage = (message) => {
-    setMessages((current) => ([...current, message]));
+    setMessages((current) => [...current, message]);
   };
 
   const sendMessage = () => {
@@ -65,17 +68,24 @@ function App() {
               </Message>
             ))}
           </ScrollArea>
-          <Group>
-            <TextInput
-              aria-label="Message input"
-              placeholder="Enter a message..."
-              style={{ flex: 1 }}
-              ref={messageInputRef}
-            />
-            <ActionIcon onClick={() => sendMessage()}>
-              <IconSend />
-            </ActionIcon>
-          </Group>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              sendMessage();
+            }}
+          >
+            <Group>
+              <TextInput
+                aria-label="Message input"
+                placeholder="Enter a message..."
+                style={{ flex: 1 }}
+                ref={messageInputRef}
+              />
+              <Button type="submit">
+                <IconSend />
+              </Button>
+            </Group>
+          </form>
         </Stack>
       </main>
     </MantineProvider>
