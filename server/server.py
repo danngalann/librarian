@@ -22,6 +22,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/predict")
+@app.post("/api/predict")
 def read_item(request: PredictionRequest):
     return answer(request.sentence)
