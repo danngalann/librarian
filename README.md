@@ -4,4 +4,4 @@ A simple book recomendation chatbot built with PyTorch and served with React, Fa
   <img height="600" src="docs/img/app.png">
 </p>
 
-PyTorch model definition and training can be seen [here](https://mgithub.com/danngalann/book-recomendation-chatbot).
+PyTorch model definition and training can be seen [here](https://github.com/danngalann/book-recomendation-chatbot).
