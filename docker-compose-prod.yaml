@@ -9,6 +9,7 @@ services:
     build: ./server/
     ports:
       - "5001:80"
+    restart: unless-stopped
   client:
     image: librarian_client
     container_name: librarian_client
@@ -17,3 +18,4 @@ services:
     build: ./client/
     ports:
       - "5002:80"
+    restart: unless-stopped
